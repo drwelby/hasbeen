@@ -209,32 +209,29 @@ class Tree:
         if self.levels < 4:
             return
         if self.levels > 4:
-            self.compactseamfeatures2()
-            return
-        #for node in self.nodes[1:self.firstleafid/4]:
-        start = self.firstleafid/2 - 1
-        end = start/8
-        if start < 3: start = 3 
-        if end < 1 : end = 1
-        for node in self.nodes[start:end:-1]:
-            #if len(node.features) > 0:
-            #    continue
-            id = node.id
-            children = self.nodes[id*2:id*2+2]
-            for child in children:
-                cid = child.id
-                grandchildren = self.nodes[cid*2:cid*2 + 2]
-                gccount = 0
-                for gcnode in grandchildren:
-                    gccount += len(gcnode.allfeatures())
-                #print "Node %s has %s GC" % (id,gccount)
-                if gccount == 0:
-                    #print "Slurping %s features from node %s" % (len(child.allfeatures()),child.id)
-                    #node.features.extend(child.features)
-                    if len(child.allfeatures()) < 4: # this is weird but it works
-                        node.features.extend(child.allfeatures())
-                        child.features = []
-                        child.holdfeatures = []
+            start = self.firstleafid/2 - 1
+            end = start/8
+            if start < 3: start = 3 
+            if end < 1 : end = 1
+            for node in self.nodes[start:end:-1]:
+                #if len(node.features) > 0:
+                #    continue
+                id = node.id
+                children = self.nodes[id*2:id*2+2]
+                for child in children:
+                    cid = child.id
+                    grandchildren = self.nodes[cid*2:cid*2 + 2]
+                    gccount = 0
+                    for gcnode in grandchildren:
+                        gccount += len(gcnode.allfeatures())
+                    #print "Node %s has %s GC" % (id,gccount)
+                    if gccount == 0:
+                        #print "Slurping %s features from node %s" % (len(child.allfeatures()),child.id)
+                        #node.features.extend(child.features)
+                        if len(child.allfeatures()) < 4: # this is weird but it works
+                            node.features.extend(child.allfeatures())
+                            child.features = []
+                            child.holdfeatures = []
 
     def compactseamfeatures2(self):
         # another run at the mystery algorithm
