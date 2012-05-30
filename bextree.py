@@ -17,15 +17,12 @@ class Node:
     splitcoord = 0
     features = []
     holdfeatures = []
-    seamcompacted = True # should this node compact its seam features
     full = False
-    maxcount = 0
 
     def __init__(self, id):
         self.id = id
         self.count = 0
         self.features = []
-        self.seamcompacted = True
         self.holdfeatures = []
         self.full = False
         self.sibling = None
