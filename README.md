@@ -30,3 +30,8 @@ About The Code
 --------------
 
 hasbeen.py gives you the spatial index tree and a way to add features to it, and get the whole tree as a flat array. It does not write the SBN files. SBN read/write is provided by Joel Lawhead's spatialindex.py, of which I include an older version for reading SBNs for testing. Joel is integrating hasbeen into spatialindex.
+
+Also
+----------
+
+Since the division is binary, it looks like you can do the sorting quickly with a little (bit twiddling)(https://gist.github.com/drwelby/5977601).
