@@ -34,4 +34,4 @@ hasbeen.py gives you the spatial index tree and a way to add features to it, and
 Also
 ----------
 
-Since the division is binary, it looks like you can do the sorting quickly with a little (bit twiddling)(https://gist.github.com/drwelby/5977601).
+Since the division is binary, it looks like you can do the sorting quickly with a little [bit twiddling](https://gist.github.com/drwelby/5977601).
